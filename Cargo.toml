@@ -1,0 +1,87 @@
+[package]
+name = "auth_service"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+# issue and validate JWTs (JSON Web Tokens)
+# see https://jwt.io/
+jsonwebtoken = "8"
+
+# serializing and deserializing (mainly JSON)
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Who doesn't need a PRNG?
+rand = "0.8"
+
+# generate UUIDs
+uuid = { version = "1", features = ["serde", "v4"] }
+
+# hash passwords
+argon2 = "0"
+
+# hash fingerprint (user-agent)
+sha3 = "0"
+
+hex = "0"
+
+
+# load environment variables from .env file
+dotenv = "0"
+
+# cryptography (used for generating Ed25519 key pairs)
+ring = "0"
+
+# time library
+chrono = { version = "0", features = ["serde"] }
+
+# async stuff
+futures = "0"
+futures-util = "0"
+
+# communicate with PostgreSQL database
+sqlx = {version = "0.6" , features = ["runtime-async-std-native-tls", "postgres", "chrono", "uuid"]}
+
+# redis communication
+redis = { version = "0.23.0", features = ["tokio-comp"] }
+
+# blazingly fast web framework
+actix-web = "4"
+
+# actix-web CORS middleware
+# see https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+actix-cors = "0.6.4"
+
+# actix-web governor middleware (restrict number of requests from IP, to avoid DOS attack)
+actix-limitation = "0.4.0"
+
+actix-session = "0.7.2"
+
+# actix-web auth middleware
+actix-web-httpauth = "0"
+
+num_cpus = "1.15.0"
+
+# logging crates
+log = "0.4"
+env_logger = "0.10.0"
+
+# for colored output
+colored = "2"
+totp-rs = { version = "5", features = ["base64", "qr"] }
+
+# base32
+base32 = "0.4"
+
+# regex for text validation
+regex = "1.8.1"
+# lazy static for intiliazing static variables at runtime
+lazy_static = "1"
+
+validator = { version = "0.16.0", features = ["derive"] }
+
+derive_more = "0"
